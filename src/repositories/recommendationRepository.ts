@@ -73,6 +73,24 @@ async function truncate() {
 	await prisma.$executeRaw`TRUNCATE TABLE recommendations;`;
 }
 
+async function seed() {
+	await prisma.recommendation.createMany({
+		data: [
+			{
+				name: 'Falamansa - Xote dos Milagres',
+				youtubeLink: 'https://www.youtube.com/watch?v=chwyjJbcs1Y',
+				score: 0,
+			},
+			{
+				name: 'Kendrick Lamar - Money Trees',
+				youtubeLink:
+					'https://www.youtube.com/watch?v=smqhSl0u_sI&ab_channel=music',
+				score: 10,
+			},
+		],
+	});
+}
+
 export const recommendationRepository = {
 	create,
 	findAll,
@@ -82,4 +100,5 @@ export const recommendationRepository = {
 	getAmountByScore,
 	remove,
 	truncate,
+	seed
 };
