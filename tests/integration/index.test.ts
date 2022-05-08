@@ -114,18 +114,18 @@ describe('GET /recommendations/top/:amount', () => {
 	});
 });
 
-// describe('POST /reset-database', () => {
-//     it('should erase all data from database', async() => {
-//         const res = await agent.post('/reset-database')
+describe('POST /reset-database', () => {
+    it('should erase all data from database', async() => {
+        const res = await agent.post('/reset-database')
 
-//         expect(res.status).toEqual(200)
-//     })
-// })
+        expect(res.status).toEqual(200)
+    })
+})
 
-// describe('POST /seed-database', () => {
-// 	it('should seed data to database', async () => {
-// 		const res = await agent.post('/seed-database');
+describe('POST /seed-database', () => {
+	it('should seed data to database', async () => {
+		const res = await agent.post('/seed-database');
 
-// 		expect(res.status).toEqual(201);
-// 	});
-// });
+		expect(res.status).toEqual(201);
+	});
+});
