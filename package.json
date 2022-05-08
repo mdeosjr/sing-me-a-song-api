@@ -8,7 +8,8 @@
 		"dev": "nodemon src/server.ts",
 		"migrate:test": "npx dotenv -e .env.test prisma migrate dev",
 		"dev:test": "npx dotenv -e .env.test nodemon src/server.ts",
-		"test": "NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i"
+		"test": "dotenv -e .env.test prisma db seed && NODE_OPTIONS=--experimental-vm-modules dotenv -e .env.test jest -i",
+		"test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest ---coverage"
 	},
 	"prisma": {
 		"seed": "ts-node prisma/seed.ts"
@@ -17,6 +18,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@faker-js/faker": "^6.3.1",
 		"@types/cors": "^2.8.12",
 		"@types/dotenv": "^8.2.0",
 		"@types/express": "^4.17.13",
