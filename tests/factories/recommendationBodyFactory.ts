@@ -6,6 +6,6 @@ export function recommendationBody(): Recommendation {
         id: 1,
         name: faker.lorem.words(2),
         youtubeLink: 'https://www.youtube.com/',
-        score: 0
+        score: -1000
     }
 }

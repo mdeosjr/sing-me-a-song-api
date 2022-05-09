@@ -13,14 +13,16 @@ interface FindAllWhere {
 	scoreFilter: 'lte' | 'gt';
 }
 
-function findAll(findAllWhere?: FindAllWhere) {
+async function findAll(findAllWhere?: FindAllWhere) {
 	const filter = getFindAllFilter(findAllWhere);
 
-	return prisma.recommendation.findMany({
+	const recommendations = await prisma.recommendation.findMany({
 		where: filter,
 		orderBy: { id: 'desc' },
 		take: 10,
 	});
+
+	return recommendations;
 }
 
 function getAmountByScore(take: number) {

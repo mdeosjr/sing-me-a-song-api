@@ -98,6 +98,8 @@ export const recommendationService = {
 	get,
 	getById: getByIdOrFail,
 	getTop,
+	getScoreFilter,
+	getByScore,
 	truncate,
 	seed
 };
